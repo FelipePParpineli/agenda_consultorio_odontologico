@@ -1,0 +1,29 @@
+<head>
+    <title>Agendar consulta</title>
+    <body>
+        <h1>Agendar consulta</h1>
+        <hr>
+        <form action="/agendar_consulta" method="post">
+            <table>
+                <tr>
+                    <label for="paciente">Paciente:</label>
+                    <input type="text" id="paciente" name="nome_paciente"/>
+                </tr>
+                <tr>
+                    <label for="profissional">Profissional:</label>
+                    <input type="text" id="profissional" name="nome_profissional"/>
+                </tr>
+                <tr>
+                    <label for="data">Data Consulta:</label>
+                    <input type="datetime-local" id="data" name="data_consulta">
+                </tr>
+                <tr class="button">
+                    <button type="submit">Agendar</button>
+                </tr>
+            </table>
+        </form>
+        <form action="/">
+            <input type="submit" value="Ir para página inicial" />
+        </form>
+    </body>
+</head>
