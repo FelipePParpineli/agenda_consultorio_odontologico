@@ -1,24 +1,84 @@
-<head>
-    <title>Cadastro</title>
+<html>
+    <head>
+        <title>Cadastro</title>
+        <meta charset="utf-8" />
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-image: linear-gradient(to right, rgb(244, 246, 247), rgb(122, 126, 128));
+            }
+            .CadastroFields{
+                color: white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                background-color: rgba(0, 0, 0, 0.6);
+                padding: 10px;
+                border-radius: 15px;
+                width: 20%;
+            }
+            fieldset{
+                border: 1px solid rgb(169, 169, 172);
+            }
+            legend{
+                border: 2px solid rgb(120, 121, 122);
+                padding: 10px;
+                text-align: center; 
+                background-color: rgb(22, 22, 22);
+                border-radius: 8p4
+            }
+            .Input{
+                position: relative;
+                background-color: #b4b9b4;
+                color: rgb(10, 10, 10);
+                padding: 10px 25px;
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+                border: 2px solid rgb(8, 8, 8);
+            }
+            .InputField{
+                position: relative;
+                background-color: #fefffe;
+                color: rgb(10, 10, 10);
+                padding: 5px 25px;
+                text-decoration: none;
+                text-align: center;
+                border: 2px solid rgb(8, 8, 8);
+            }
+        </style>
+    </head>
     <body>
-        <h1>Cadastro de Pacientes</h1>
-        <form action="/cadastro_paciente" method="post">
-            <table>
-                <tr>
+        <div class="CadastroFields">
+            <fieldset>
+                <legend><b>Cadastro de Pacientes</b></legend>
+                <br>
+                <form action="/cadastro_paciente" method="post">
+                    <br>
                     <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome_paciente"/>
-                </tr>
-                <tr>
+                    <br>
+                    <input type="text" id="nome" class="InputField" name="nome_paciente"/>
+                    <br><br>
                     <label for="sobrenome">Sobrenome:</label>
-                    <input type="text" id="sobrenome" name="sobrenome_paciente"/>
-                </tr>
-                <tr class="button">
-                    <button type="submit">Cadastrar</button>
-                </tr>
-            </table>
-        </form>
-        <form action="/">
-            <input type="submit" value="Ir para página inicial" />
-        </form>
+                    <br>
+                    <input type="text" id="sobrenome" class="InputField" name="sobrenome_paciente"/>
+                    <p>Sexo:</p>
+                    <input type="radio" id="sexo_f" class="Input" name="sexo_paciente" value="F">
+                    <label for="sexo_f">F</label>
+                    <input type="radio" id="sexo_m" class="Input" name="sexo_paciente" value="M">
+                    <label for="sexo_m">M</label>
+                    <br><br>
+                    <label for="endereco">Endereço:</label>
+                    <br>
+                    <input type="text" id="endereco" class="InputField" name="endereco_paciente"/>
+                    <br><br>
+                    <button type="submit" class="Input">Cadastrar</button>
+                </form>
+                <form action="/">
+                    <input type="submit" class="Input" value="Ir para página inicial" />
+                </form>
+            </fieldset>
+        </div>
     </body>
-</head>
+</html>

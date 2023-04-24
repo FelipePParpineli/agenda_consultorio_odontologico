@@ -1,29 +1,79 @@
-<head>
-    <title>Agendar consulta</title>
+<html>
+    <head>
+        <title>Agendar consulta</title>
+        <meta charset="utf-8" />
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-image: linear-gradient(to right, rgb(244, 246, 247), rgb(122, 126, 128));
+            }
+            .CadastroFields{
+                color: white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                background-color: rgba(0, 0, 0, 0.6);
+                padding: 10px;
+                border-radius: 15px;
+                width: 20%;
+            }
+            fieldset{
+                border: 1px solid rgb(169, 169, 172);
+            }
+            legend{
+                border: 2px solid rgb(120, 121, 122);
+                padding: 10px;
+                text-align: center; 
+                background-color: rgb(22, 22, 22);
+                border-radius: 8p4
+            }
+            .Input{
+                position: relative;
+                background-color: #b4b9b4;
+                color: rgb(10, 10, 10);
+                padding: 10px 25px;
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+                border: 2px solid rgb(8, 8, 8);
+            }
+            .InputField{
+                position: relative;
+                background-color: #fefffe;
+                color: rgb(10, 10, 10);
+                padding: 5px 25px;
+                text-decoration: none;
+                text-align: center;
+                border: 2px solid rgb(8, 8, 8);
+            }
+        </style>
+    </head>
     <body>
-        <h1>Agendar consulta</h1>
-        <hr>
-        <form action="/agendar_consulta" method="post">
-            <table>
-                <tr>
+        <div class="CadastroFields">
+            <fieldset>
+                <legend><b>Agendamento de Consultas</b></legend>
+                <br>
+                <form action="{{url_for('agendamento_consulta')}}" method="post">
+                    <br>
                     <label for="paciente">Paciente:</label>
-                    <input type="text" id="paciente" name="nome_paciente"/>
-                </tr>
-                <tr>
+                    <br>
+                    <input type="text" id="paciente" class="InputField" name="nome_paciente"/>
+                    <br><br>
                     <label for="profissional">Profissional:</label>
-                    <input type="text" id="profissional" name="nome_profissional"/>
-                </tr>
-                <tr>
+                    <br>
+                    <input type="text" id="profissional" class="InputField" name="nome_profissional"/>
+                    <br><br>
                     <label for="data">Data Consulta:</label>
-                    <input type="datetime-local" id="data" name="data_consulta">
-                </tr>
-                <tr class="button">
-                    <button type="submit">Agendar</button>
-                </tr>
-            </table>
-        </form>
-        <form action="/">
-            <input type="submit" value="Ir para página inicial" />
-        </form>
+                    <br>
+                    <input type="datetime-local" id="data" class="InputField" name="data_consulta">
+                    <br><br>
+                    <button type="submit" class="Input">Agendar</button>
+                </form>
+                <form action="/">
+                    <input type="submit" class="Input" value="Ir para página inicial" />
+                </form>
+            </fieldset>
+        </div>
     </body>
-</head>
+</html>

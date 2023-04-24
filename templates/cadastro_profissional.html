@@ -1,34 +1,92 @@
-<head>
-    <title>Cadastro</title>
+<html>
+    <head>
+        <title>Cadastro</title>
+        <meta charset="utf-8" />
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-image: linear-gradient(to right, rgb(244, 246, 247), rgb(122, 126, 128));
+            }
+            .CadastroFields{
+                color: white;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                background-color: rgba(0, 0, 0, 0.6);
+                padding: 10px;
+                border-radius: 15px;
+                width: 20%;
+            }
+            fieldset{
+                border: 1px solid rgb(169, 169, 172);
+            }
+            legend{
+                border: 2px solid rgb(120, 121, 122);
+                padding: 10px;
+                text-align: center; 
+                background-color: rgb(22, 22, 22);
+                border-radius: 8p4
+            }
+            .Input{
+                position: relative;
+                background-color: #b4b9b4;
+                color: rgb(10, 10, 10);
+                padding: 10px 25px;
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+                border: 2px solid rgb(8, 8, 8);
+            }
+            .InputField{
+                position: relative;
+                background-color: #fefffe;
+                color: rgb(10, 10, 10);
+                padding: 5px 25px;
+                text-decoration: none;
+                text-align: center;
+                border: 2px solid rgb(8, 8, 8);
+            }
+        </style>
+    </head>
     <body>
-        <h1>Cadastro de Profissionais</h1>
-        <hr>
-        <form action="{{url_for('cadastro_profissional')}}" method="post">
-            <table>        
-                <tr>
+        <div class="CadastroFields">
+            <fieldset>
+                <legend><b>Cadastro de Profissionais</b></legend>
+                <br>
+                <form action="{{url_for('cadastro_profissional')}}" method="post">
+                    <br>
                     <label for="tipo-profissional">Tipo do profissional:</label>
-                    <select id="tipo" name="tipo_profissional" multiple>
+                    <br>
+                    <select id="tipo" class="InputField" name="tipo_profissional" multiple>
                         <option value="Dentista-geral">Dentista Geral</option>
                         <option value="Dentista-buco">Dentista Bucomaxilo</option>
                         <option value="Dentista-endo">Dentista Endodontista</option>
                         <option value="Auxiliar">Auxiliar</option>
                     </select>
-                </tr>
-                <tr>
+                    <br><br>
                     <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome_profissional"/>
-                </tr>
-                <tr>
+                    <br>
+                    <input type="text" id="nome" class="InputField" name="nome_profissional"/>
+                    <br><br>
                     <label for="sobrenome">Sobrenome:</label>
-                    <input type="text" id="sobrenome" name="sobrenome_profissional"/>
-                </tr>
-                <tr class="button">
-                    <button type="submit">Cadastrar</button>
-                </tr>
-            </table>
-        </form>
-        <form action="/">
-            <input type="submit" value="Ir para página inicial" />
-        </form>
+                    <br>
+                    <input type="text" id="sobrenome" class="InputField" name="sobrenome_profissional"/>
+                    <br><br>
+                    <label for="data">Data de Nascimento:</label>
+                    <br>
+                    <input type="date" id="data" class="InputField" name="data_nascimento">
+                    <br><br>
+                    <label for="endereco">Endereço:</label>
+                    <br>
+                    <input type="text" id="endereco" class="InputField" name="endereco_profissional"/>
+                    <br><br>
+                    <button type="submit" class="Input">Cadastrar</button>
+                </form>
+                <form action="/">
+                    <input type="submit" class="Input" value="Ir para página inicial" />
+                </form>
+            </fieldset>
+        </div>
     </body>
-</head>
+</html>
