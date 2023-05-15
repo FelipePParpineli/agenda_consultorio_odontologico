@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect
 from db import conectar_db, insert_db, select_db
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -62,6 +63,27 @@ def agendamento_consulta():
                 ('{nome_profissional}', '{nome_paciente}', '{data_consulta}')"""
             insert_db(query)
     return redirect(url_for('home'))
+
+@app.route('/consultar_agenda', methods=['GET', 'POST'])
+def consultar_agenda():
+    if request.method == 'POST':
+        data_consulta = request.form.get('data_consulta')
+        print(data_consulta)
+        if data_consulta:
+            query = f"""SELECT * FROM Consultas WHERE Horario LIKE '{data_consulta}%'"""
+            consultas = select_db(query)
+            if len(consultas) > 0:
+                consultas = [{'Profissional': i[1], 'Paciente': i[2], 'Horário': i[3]} for i in consultas]
+                consultas = pd.DataFrame.from_dict(consultas)
+                consultas = consultas.to_html()
+            else:
+                consultas = """<html>
+                                <title>Home - Agendamentos</title>
+                                <style>body{font-family: Arial, Helvetica,sans-serif; background-image: linear-gradient(to right, rgb(244, 246, 247), rgb(122, 126, 128));}
+                                <body><div><p>NÃO HÁ CONSULTAS PARA ESTA DATA</p></div></body>
+                            </html>"""
+    return consultas
+    #return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(debug=True)

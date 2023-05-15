@@ -16,7 +16,12 @@ def select_db(query):
     cursor = conectar_db()
     query_insert = query
     result = cursor.execute(query_insert)
-    return result
+    row = cursor.fetchone()
+    result_select = []
+    while row:
+        result_select.append(row)
+        row = cursor.fetchone()
+    return result_select
 
 def insert_db(query):
     cursor = conectar_db()

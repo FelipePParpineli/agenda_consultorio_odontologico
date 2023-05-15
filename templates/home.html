@@ -41,6 +41,15 @@
                 cursor: pointer;
                 border: 2px solid rgb(8, 8, 8);
             }
+            dialog::backdrop {
+                background-color: rgb( 0 0 0/ .5);
+            }
+            dialog {
+                border: none;
+                border-radius: .5rem;
+                box-shadow: 0 0 1em rgb( 0 0 0 / .3);
+                width: 80%;
+            }
         </style>
     </head>
     <body>
@@ -54,6 +63,13 @@
                     <a href="{{ url_for('cadastrar_paciente')}}"><button type="submit" class="Input">Cadastrar Paciente</button></a>
                     <br><br>
                     <a href="{{ url_for('agendar_consulta')}}"><button type="submit" class="Input">Agendar Consulta</button></a>
+                    <br><br>
+                    <div>
+                        <form action="{{url_for('consultar_agenda')}}" method="post">
+                            <input type="date" id="data" class="InputField" name="data_consulta">
+                            <a href="{{url_for('consultar_agenda')}}" target="_blanck"><button type="submit" class="Input">Consultar Agenda</button></a>
+                        </form>
+                    </div>
                 </div>
             </fieldset>
         </div>
